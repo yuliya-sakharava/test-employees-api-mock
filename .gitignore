@@ -6,3 +6,4 @@ venv
 **/pyreport.html
 allure-results
 **/result.xml
+.env

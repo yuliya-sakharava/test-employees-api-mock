@@ -21,6 +21,14 @@ pool:
    vmImage: 'windows-latest'
 
 steps:
+- task: replacetokens@3
+  displayName: 'Replace tokens'
+  inputs:
+    targetFiles: |
+      **/secrets.json
+    tokenPrefix: '$('
+    tokenSuffix: ')'
+
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.9'
