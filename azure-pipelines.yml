@@ -1,0 +1,38 @@
+trigger:
+- master
+
+pool:
+   vmImage: 'windows-latest'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.9'
+    addToPath: true
+    architecture: 'x64'
+
+- script: |
+- task: CmdLine@2
+  inputs:
+    script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+  displayName: 'Install dependencies'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      pytest
+  displayName: 'pytest'
+  continueOnError: true
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: 'result.xml'
+
+- task: PublishHtmlReport@1
+  displayName: 'Publish HTML Report'
+  inputs:
+    reportDir: 'pyreport.html'
+    tabName: 'PytestPyreport'
