@@ -5,6 +5,9 @@ import jsonschema
 # from env_setup import PATH_SINGLE_EMPLOYEE, PATH_ALL_EMPLOYEES
 import allure
 from endpoints.base import BaseAPI
+from support.logger import log_func
+
+LOG = log_func()
 
 
 class Employees(BaseAPI):
@@ -20,16 +23,4 @@ class Employees(BaseAPI):
         assert response.status_code == 200, f"Status code should be 200, but received {response.status_code}"
         assert response.json() == data, f"Failed. Actual response: {response.json()}, but expected {data}"
         jsonschema.validate(response.json(), JSONHandler.load_json(PATH_SINGLE_EMPLOYEE))
-
-    # @allure.step("Fetch single employee - positive case (existing employee).")
-    # def fetch_single_employee_positive_case(self, employee_id, data):
-    #     response = self.get(url=f"{self.url}/{employee_id}", headers=self.headers)
-    #     assert response.status_code == 200, f"Status code should be 200, but received {response.status_code}"
-    #     assert response.json() == data, f"Failed. Actual response: {response.json()}, but expected {data}"
-    #     jsonschema.validate(response.json(), JSONHandler.load_json(PATH_SINGLE_EMPLOYEE))
-
-    # @allure.step("Fetch single employee - negative case (non-existing employee).")
-    # def fetch_single_employee_negative_case(self, employee_id):
-    #     response = self.get(url=f"{self.url}/{employee_id}", headers=self.headers)
-    #     assert response.status_code == 404
-    #     assert response.json() == {"error": "Employee not found"}
+        LOG.info(f"Test employee {data} has been created")

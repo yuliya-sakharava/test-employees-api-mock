@@ -3,12 +3,12 @@ import requests
 from env_setup import Credentials, Endpoints
 from support.custom_errors import TokenNotFoundError, TokenNotGeneratedError
 from endpoints.employees import Employees
-# from database.db_connection import DatabaseConnection
+
+
+# from support.logger import log_func
 # import json
 # import time
 # from env_setup import PATH_SINGLE_EMPLOYEE, PATH_ALL_EMPLOYEES, PATH_DATASET
-# from support.logger import log_func
-from support.json_handler import JSONHandler
 
 
 @pytest.fixture(scope="session")
