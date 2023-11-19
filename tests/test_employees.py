@@ -15,6 +15,7 @@ existing_employee_3 = [3,
 @pytest.mark.parametrize("employee_id, expected_data",
                          (existing_employee_1, existing_employee_2, existing_employee_3),
                          ids=['existing_employee_1', 'existing_employee_2', 'existing_employee_3'])
+@pytest.mark.smoke
 def test_create_new_employee(employees_instance, employee_id, expected_data):
     employees_instance.create_new_employee(data=expected_data)
 
