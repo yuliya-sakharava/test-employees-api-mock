@@ -5,12 +5,6 @@ from support.custom_errors import TokenNotFoundError, TokenNotGeneratedError
 from endpoints.employees import Employees
 
 
-# from support.logger import log_func
-# import json
-# import time
-# from env_setup import PATH_SINGLE_EMPLOYEE, PATH_ALL_EMPLOYEES, PATH_DATASET
-
-
 @pytest.fixture(scope="session")
 def create_session():
     yield requests.Session()
