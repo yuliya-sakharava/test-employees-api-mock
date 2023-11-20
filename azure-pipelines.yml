@@ -20,15 +20,10 @@ trigger:
 pool:
    vmImage: 'windows-latest'
 
-steps:
-- task: replacetokens@3
-  displayName: 'Replace tokens'
-  inputs:
-    targetFiles: |
-      **/secrets.json
-    tokenPrefix: '$('
-    tokenSuffix: ')'
+variables:
+  - group: test-employees-api-mock-secrets
 
+steps:
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.9'
@@ -53,6 +48,9 @@ steps:
         pytest
   displayName: 'pytest'
   continueOnError: true
+  env:
+    TOKEN_1: $(APP_USERNAME)
+    TOKEN_2: $(APP_PASSWORD)
 
 - task: PublishTestResults@2
   inputs:
