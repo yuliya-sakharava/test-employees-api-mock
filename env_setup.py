@@ -4,7 +4,8 @@ import os
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 PATH_SINGLE_EMPLOYEE = os.path.join(ROOT_PATH, "schemas", "single_employee.json")
-SECRET_FILE = os.path.join(ROOT_PATH, "secrets", "secrets.json")
+PATH_ALL_EMPLOYEES = os.path.join(ROOT_PATH, "schemas", "all_employees.json")
+ALL_EMPLOYEES_FILE = os.path.join(ROOT_PATH, "all_employees.json")
 
 
 @dataclass

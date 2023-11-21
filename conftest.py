@@ -1,8 +1,12 @@
+import json
 import pytest
 import requests
 from env_setup import Credentials, Endpoints
 from support.custom_errors import TokenNotFoundError, TokenNotGeneratedError
 from endpoints.employees import Employees
+from support.logger import log_func
+
+LOG = log_func()
 
 
 @pytest.fixture(scope="session")
