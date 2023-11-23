@@ -26,7 +26,8 @@ class Employees(BaseAPI):
         current_data = JSONHandler.load_json(ALL_EMPLOYEES_FILE)
         current_data.append(data)
         JSONHandler.dump_json(ALL_EMPLOYEES_FILE, current_data)
-        self.LOG.info(f"Test data has been added to the all_employees.json file. You can find the file here: {ALL_EMPLOYEES_FILE}")
+        self.LOG.info(
+            f"Test data has been added to the all_employees.json file. You can find the file here: {ALL_EMPLOYEES_FILE}")
 
     @allure.step("Fetch all employees")
     def fetch_all_employees(self, data):
@@ -57,7 +58,8 @@ class Employees(BaseAPI):
         response = self.session.patch(f"{self.url}/{employee_id}", headers=self.headers, json=data)
         assert response.status_code == 200, f"Status code should be 200, but received {response.status_code}"
         assert response.json() == {'message': 'Employee updated'}
-        self.LOG.info(f"Existing test employee employeeId={employee_id} has been partially updated. Updated data: {data}")
+        self.LOG.info(
+            f"Existing test employee employeeId={employee_id} has been partially updated. Updated data: {data}")
 
     @allure.step("Update full employee data")
     def update_full_employee(self, employee_id, new_data):
