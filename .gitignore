@@ -7,3 +7,6 @@ venv
 allure-results
 **/result.xml
 .env
+**/all_employees.json
+**/test_report.json
+**/test_results.png

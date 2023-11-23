@@ -29,7 +29,7 @@ def test_create_new_employee(employees_instance, employee_id, expected_data):
 @allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.regression
 def test_fetch_all_employees(employees_instance):
-    employees_instance.fetch_all_employees()
+    employees_instance.fetch_all_employees(data=JSONHandler.load_json(ALL_EMPLOYEES_FILE))
 
 
 @allure.description('Fetch single employee. Positive case - Fetch single existing employee')
