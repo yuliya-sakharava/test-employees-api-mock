@@ -1,8 +1,17 @@
+# employees-api-mock
+
+Application under test was developed by Toghrul Mirzayev
+https://github.com/ToghrulMirzayev/employees-api-mock
+
+Application is live on https://employees-api-i9ae.onrender.com/
+
 # test-employees-api-mock
 
-Application testing project which you can find here https://employees-api-i9ae.onrender.com/
+* Run application using command below:
+  * `pytest`
+  
+* You can see the test results in the Telegram bot `@pyreport_bot`
+  * for this, add your chat id in the `pytest.ini` file here `--telegram-pyreport <chat id>`
 
-Application under test was developed by Toghrul Mirzayev https://github.com/ToghrulMirzayev/employees-api-mock
-
-Run tests using below command to generate pyreport.html file with test results:
-pytest --junitxml=result.xml -o junit_family="xunit1" --pyreport
+* You can see the test results in the Allure
+  * use `allure serve allure-results` command for this

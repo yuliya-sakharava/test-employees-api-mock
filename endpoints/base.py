@@ -1,5 +1,4 @@
 import requests
-from support.logger import log_func
 
 
 class BaseAPI:
